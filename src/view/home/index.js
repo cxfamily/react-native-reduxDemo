@@ -16,8 +16,7 @@ class Home extends Component {
 
 
 	componentDidMount(){
-		let {dispatch} = this.props;
-		dispatch(loadData())
+		this.props.dispatch(loadData())
 	}
 
 	_renderItem(item,index){
@@ -43,6 +42,7 @@ class Home extends Component {
 
 	render() {
 		let {loading,data} = this.props;
+		console.log('render---',data);
 		return (
 			<View style={s.wrap}>
 				{loading ? (

@@ -27,14 +27,13 @@ class Detail extends Component {
     }
 
     changeData(num,index) {
-        let {dispatch} = this.props;
-        let newNum = num ? num + '修改啦～' : '0修改啦～';
+        let newNum = num ? num + '修改啦～' +  index : '0修改啦～' +  index;
         this.setState({num:newNum});
-        dispatch(changeData(newNum,index))
+        this.props.dispatch(changeData(newNum,index))
     }
 
     render() {
-        let {data, index} = this.state;
+        let {data, index, num} = this.state;
         return (
             <SafeAreaView style={s.wrap} forceInset={{top: 'never'}}>
                 <Text style={s.title}>{index}--{data.title}</Text>
@@ -44,13 +43,14 @@ class Detail extends Component {
                     onPress={() => {this.changeData(data.flight_number,index)}}
                     style={s.text}
                 >
-                    number: {this.state.num ? this.state.num : '0'}
+                    click this number: {num ? num : '0'}
                 </Text>
 
             </SafeAreaView>
         );
     }
 }
+
 const s = StyleSheet.create({
     wrap: {
         flex: 1,
