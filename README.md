@@ -1,5 +1,5 @@
 # react-native-reduxDemo
-react native redux demo
+react native redux 小示例
 
 # 运行前先install 然后再 link
 npm install
